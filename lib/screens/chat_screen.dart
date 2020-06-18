@@ -107,7 +107,6 @@ class _ChatScreenState extends State<ChatScreen> {
 }
 
 class MessagesStream extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
@@ -135,8 +134,7 @@ class MessagesStream extends StatelessWidget {
         }
         return Expanded(
           child: ListView(
-            padding:
-            EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
+            padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
             children: messageBubbles,
           ),
         );
@@ -144,8 +142,6 @@ class MessagesStream extends StatelessWidget {
     );
   }
 }
-
-
 
 class MessageBubble extends StatelessWidget {
   final String sender;
@@ -161,12 +157,15 @@ class MessageBubble extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.end,
         children: <Widget>[
           Text(sender,
-          style: TextStyle(
-            fontSize: 12.0,
-            color: Colors.black54,
-          )),
+              style: TextStyle(
+                fontSize: 12.0,
+                color: Colors.black54,
+              )),
           Material(
-            borderRadius: BorderRadius.circular(30.0),
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30.0),
+                bottomLeft: Radius.circular(30.0),
+                bottomRight: Radius.circular(30.0)),
             elevation: 5.0,
             color: Colors.lightBlueAccent,
             child: Padding(
